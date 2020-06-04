@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "./reducers/rootReducer";
 import Container from "react-bootstrap/Container";
+import "react-toastify/dist/ReactToastify.css";
 
 const store = createStore(
   rootReducer,

@@ -15,6 +15,11 @@ const DashboardPage = () => {
       <Link to="/axios">
         <Button variant="warning">Axios Page</Button>
       </Link>
+      <br />
+      <br />
+      <Link to="/dashboardcrud">
+        <Button variant="warning">Dashboard for CRUD</Button>
+      </Link>
     </>
   );
 };

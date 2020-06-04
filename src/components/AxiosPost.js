@@ -17,10 +17,12 @@ const AxiosPost = () => {
   //     this.setState({ name: event.target.value });
   //   };
 
-  Axios.post(`https://localhost:44332/api/teachers`, teacher).then((res) => {
-    console.log(res);
-    console.log(res.data);
-  });
+  // useEffect(() => {
+  //   Axios.post(`https://localhost:44332/api/teachers`, teacher).then((res) => {
+  //     //console.log(res);
+  //     console.log(res.data);
+  //   });
+  // }, []);
 
   const handleChange = (event) => {
     //console.log(event.target.value);

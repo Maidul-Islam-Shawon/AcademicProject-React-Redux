@@ -6,11 +6,11 @@ import AxiosPost from "../components/AxiosPost";
 const AxiosPage = () => {
   const [state, setState] = useState([]);
 
-  useEffect(() => {
-    Axios.get("https://localhost:44332/api/teachers").then((response) => {
-      setState(response.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   Axios.get("https://localhost:44332/api/teachers").then((response) => {
+  //     setState(response.data);
+  //   });
+  // }, []);
 
   console.log(state);
   return (

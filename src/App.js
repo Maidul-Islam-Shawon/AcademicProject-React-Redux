@@ -9,6 +9,8 @@ import {
 import DashboardPage from "./pages/DashboardPage";
 import StudentsPage from "./pages/StudentsPage";
 import AxiosPage from "./pages/AxiosPage";
+import DashboardCRUD from "./user CRUD/DashboardCRUD";
+import GetUser from "./user CRUD/GetUser";
 
 function App() {
   return (
@@ -17,6 +19,9 @@ function App() {
         <Route exact path="/" component={DashboardPage} />
         <Route exact path="/students" component={StudentsPage} />
         <Route exact path="/axios" component={AxiosPage} />
+
+        <Route exact path="/dashboardcrud" component={DashboardCRUD} />
+        <Route exact path="/getuser" component={GetUser} />
         <Redirect to="/" />
       </Switch>
     </Router>
