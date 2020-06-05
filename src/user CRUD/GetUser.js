@@ -6,9 +6,9 @@ import axios from "axios";
 import { Table, Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 
-const apiUrl = "https://localhost:44332/api/students";
+const apiUrl = "https://localhost:44332/api/teachers";
 
-const GetUser = () => {
+const GetUser = (props) => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const [response, setResponse] = useState({});
@@ -77,12 +77,12 @@ const GetUser = () => {
                 <td>{user.dateOfBirth}</td>
                 <td>{user.address}</td>
                 <td>
-                  {/* <Button
+                  <Button
                     variant="info"
-                    onClick={() => this.props.editUser(user.UserId)}
+                    onClick={() => props.editUser(user.id)}
                   >
                     Edit
-                  </Button> */}
+                  </Button>
                   <Button variant="danger" onClick={() => deleteUser(user.id)}>
                     Delete
                   </Button>

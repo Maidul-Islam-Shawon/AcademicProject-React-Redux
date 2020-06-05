@@ -11,6 +11,8 @@ import StudentsPage from "./pages/StudentsPage";
 import AxiosPage from "./pages/AxiosPage";
 import DashboardCRUD from "./user CRUD/DashboardCRUD";
 import GetUser from "./user CRUD/GetUser";
+import AddUser from "./user CRUD/AddUser";
+import UserAction from "./user CRUD/UserAction";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
 
         <Route exact path="/dashboardcrud" component={DashboardCRUD} />
         <Route exact path="/getuser" component={GetUser} />
+        <Route exact path="/adduser" component={AddUser} />
+        <Route exact path="/useraction" component={UserAction} />
         <Redirect to="/" />
       </Switch>
     </Router>
