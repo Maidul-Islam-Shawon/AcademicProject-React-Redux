@@ -38,6 +38,7 @@ const AddUser = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("handlesubmit state:", state);
     props.onFormSubmit(state);
     setState(defaultValue);
     // Axios.post("https://localhost:44332/api/teachers", state).then((res) => {

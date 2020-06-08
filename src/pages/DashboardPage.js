@@ -20,6 +20,11 @@ const DashboardPage = () => {
       <Link to="/dashboardcrud">
         <Button variant="warning">Dashboard for CRUD</Button>
       </Link>
+      <br />
+      <br />
+      <Link to="/axiodashboard">
+        <Button variant="warning">Dashboard for Axios</Button>
+      </Link>
     </>
   );
 };

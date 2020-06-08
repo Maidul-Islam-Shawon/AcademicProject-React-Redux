@@ -3,7 +3,7 @@ import { Container, Button } from "react-bootstrap";
 import UserList from "./GetUser";
 import AddUser from "./AddUser";
 import axios from "axios";
-const apiUrl = "https://localhost:44380/api/teachers";
+const apiUrl = "https://localhost:44332/api/teachers";
 
 const UserAction = () => {
   //   const [state, setState] = useState({
@@ -43,7 +43,7 @@ const UserAction = () => {
     setIsAddTeacher(true);
     setIsTeacherDetails(false);
     if (isEditTeacher) {
-      axios.put(apiUrl, data).then((result) => {
+      axios.put(apiUrl + "/" + data.id, data).then((result) => {
         alert(result.data);
         setResponse(result);
         setIsAddTeacher(false);
