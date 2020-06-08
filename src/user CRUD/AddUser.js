@@ -14,25 +14,19 @@ const AddUser = (props) => {
 
   // props.teacher ? props.teacher : defaultValue
 
-  const [state, setState] = useState();
+  const [state, setState] = useState({});
   const [value, setValue] = useState(false);
-  const teacher = props.teacher;
+
+  const teacherId = props.teacher.id;
 
   useEffect(() => {
-    console.log(value);
-    if (props !== null) return setValue(true);
-    console.log(value);
+    if (teacherId) {
+      setState(props.teacher);
+    } else {
+      setState(defaultValue);
+    }
+  }, [teacherId]);
 
-    // if (teacher) {
-    //   setState({ teacher });
-    //   console.log("teacherSet:", state);
-    // } else {
-    //   setState(defaultValue);
-    //   console.log("default:", state);
-    // }
-  }, []);
-
-  //console.log(state);
   //   this.handleChange = this.handleChange.bind(this);
   //   this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -45,7 +39,6 @@ const AddUser = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.onFormSubmit(state);
-    props.teacherId(state);
     setState(defaultValue);
     // Axios.post("https://localhost:44332/api/teachers", state).then((res) => {
     //   alert(res.data);
@@ -77,7 +70,7 @@ const AddUser = (props) => {
                 name="firstName"
                 placeholder="First Name"
                 onChange={handleChange}
-                // value={state.firstName}
+                value={state.firstName}
               />
             </Form.Group>
 
@@ -88,7 +81,7 @@ const AddUser = (props) => {
                 name="lastName"
                 placeholder="Last Name"
                 onChange={handleChange}
-                // value={state.lastName}
+                value={state.lastName}
               />
             </Form.Group>
 
@@ -99,7 +92,7 @@ const AddUser = (props) => {
                 name="contactNumber"
                 placeholder="Contact Number"
                 onChange={handleChange}
-                //value={state.contactNumber}
+                value={state.contactNumber}
               />
             </Form.Group>
 
@@ -110,7 +103,7 @@ const AddUser = (props) => {
                 name="dateOfBirth"
                 placeholder="Date Of Birth"
                 onChange={handleChange}
-                //value={state.dateOfBirth}
+                value={state.dateOfBirth}
               />
             </Form.Group>
 
@@ -121,7 +114,7 @@ const AddUser = (props) => {
                 name="address"
                 placeholder="Address"
                 onChange={handleChange}
-                //value={state.address}
+                value={state.address}
               />
             </Form.Group>
 

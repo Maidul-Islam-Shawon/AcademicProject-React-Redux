@@ -6,7 +6,7 @@ import axios from "axios";
 import { Table, Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 
-const apiUrl = "https://localhost:44332/api/teachers";
+const apiUrl = "https://localhost:44380/api/teachers";
 
 const GetUser = (props) => {
   const [users, setUsers] = useState([]);

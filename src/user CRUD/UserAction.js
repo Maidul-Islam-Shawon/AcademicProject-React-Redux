@@ -3,7 +3,7 @@ import { Container, Button } from "react-bootstrap";
 import UserList from "./GetUser";
 import AddUser from "./AddUser";
 import axios from "axios";
-const apiUrl = "https://localhost:44332/api/teachers";
+const apiUrl = "https://localhost:44380/api/teachers";
 
 const UserAction = () => {
   //   const [state, setState] = useState({
@@ -15,17 +15,17 @@ const UserAction = () => {
   //     isUserDetails: true,
   //   });
 
-  const [isAddUser, setIsAddUser] = useState(false);
+  const [isAddTeacher, setIsAddTeacher] = useState(false);
   const [error, setError] = useState(null);
   const [response, setResponse] = useState({});
   const [teacherData, setTeacherData] = useState({});
-  const [isEditUser, setIsEditUser] = useState(false);
-  const [isUserDetails, setIsUserDetails] = useState(true);
+  const [isEditTeacher, setIsEditTeacher] = useState(false);
+  const [isTeacherDetails, setIsTeacherDetails] = useState(true);
 
   const onCreate = () => {
     //setState(((state.isAddUser = true), (state.isUserDetails = false)));
-    setIsAddUser(true);
-    setIsUserDetails(false);
+    setIsAddTeacher(true);
+    setIsTeacherDetails(false);
   };
 
   //   console.log("isAddUser", isAddUser);
@@ -33,39 +33,39 @@ const UserAction = () => {
 
   const onDetails = () => {
     //setState(((state.isAddUser = false), (state.isUserDetails = true)));
-    setIsAddUser(false);
-    setIsUserDetails(true);
+    setIsAddTeacher(false);
+    setIsTeacherDetails(true);
     // console.log(state);
   };
 
   const onFormSubmit = (data) => {
     //setState((state.isAddUser = true), (state.isUserDetails = false));
-    setIsAddUser(true);
-    setIsUserDetails(false);
-    if (isEditUser) {
+    setIsAddTeacher(true);
+    setIsTeacherDetails(false);
+    if (isEditTeacher) {
       axios.put(apiUrl, data).then((result) => {
         alert(result.data);
         setResponse(result);
-        setIsAddUser(false);
-        setIsEditUser(false);
+        setIsAddTeacher(false);
+        setIsEditTeacher(false);
       });
     } else {
       axios.post(apiUrl, data).then((result) => {
         alert(result.data);
         setResponse(result);
-        setIsAddUser(false);
-        setIsEditUser(false);
+        setIsAddTeacher(false);
+        setIsEditTeacher(false);
       });
     }
   };
 
   const editUser = (teacherId) => {
     // console.log(teacherId);
-    setIsUserDetails(false);
+    setIsTeacherDetails(false);
     axios.get(apiUrl + "/" + teacherId).then(
       (result) => {
-        setIsEditUser(true);
-        setIsAddUser(true);
+        setIsEditTeacher(true);
+        setIsAddTeacher(true);
         setTeacherData(result.data);
       },
       (error) => {
@@ -75,7 +75,7 @@ const UserAction = () => {
   };
 
   let teacherForm;
-  if (isAddUser || isEditUser) {
+  if (isAddTeacher || isEditTeacher) {
     teacherForm = <AddUser onFormSubmit={onFormSubmit} teacher={teacherData} />;
     //console.log(userForm);
   }
@@ -84,21 +84,25 @@ const UserAction = () => {
     <div>
       <Container>
         <h1 style={{ textAlign: "center" }}>CURD operation in React</h1>
-        <hr></hr>
-        {!isUserDetails && (
+        <hr />
+        {!isTeacherDetails && (
           <Button variant="primary" onClick={() => onDetails}>
             User Details
           </Button>
         )}
 
-        {!isAddUser && (
+        {!isAddTeacher && (
           <Button variant="primary" onClick={() => onCreate()}>
             Add User
           </Button>
         )}
         <br></br>
-        {!isAddUser && <UserList editUser={editUser} />}
+        {!isAddTeacher && <UserList editUser={editUser} />}
         {teacherForm}
+
+        <br></br>
+
+        {!isTeacherDetails && <div>showing because of false</div>}
       </Container>
     </div>
   );
