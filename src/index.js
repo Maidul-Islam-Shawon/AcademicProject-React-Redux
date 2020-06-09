@@ -14,6 +14,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "./reducers/rootReducer";
 import Container from "react-bootstrap/Container";
 import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const store = createStore(
   rootReducer,
@@ -24,6 +25,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Container>
+        <ToastContainer />
         <App />
       </Container>
     </Provider>
