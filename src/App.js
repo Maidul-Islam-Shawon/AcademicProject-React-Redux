@@ -19,6 +19,9 @@ import PostAxios from "./Axio Crud/PostAxios";
 import AcademicGet from "./AcademicCRUD/AcademicGet";
 import AcademicPost from "./AcademicCRUD/AcademicPost";
 import AcademicDashboard from "./AcademicCRUD/AcademicDashboard";
+import FinalCrudDashboard from "./FinalCrud/FinalCrudDashboard";
+import FinalCrudGet from "./FinalCrud/FinalCrudGet";
+import FinalCrudPost from "./FinalCrud/FinalCrudPost";
 
 function App() {
   return (
@@ -42,6 +45,10 @@ function App() {
         <Route exact path="/academicget" component={AcademicGet} />
         <Route exact path="/academicpost" component={AcademicPost} />
         <Route exact path={"/academicpost/:id"} component={AcademicPost} />
+
+        <Route exact path="/finalcrud" component={FinalCrudDashboard} />
+        <Route exact path="/finalcrudget" component={FinalCrudGet} />
+        <Route exact path="/finalcrudpost" component={FinalCrudPost} />
         <Redirect to="/" />
       </Switch>
     </Router>
